@@ -1,2 +1,2 @@
 # todoList
-nodejs-ts-mongodb-express
+nodejs-ts-mongodb-express without mongoose!
