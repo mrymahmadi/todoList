@@ -5,11 +5,12 @@
     "allowJs": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "strict": false,
+    "strict": true /*i chenge this false to true*/,
     "skipLibCheck": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true /* new added*/,
     "allowSyntheticDefaultImports": true
   },
   "include": ["src"],

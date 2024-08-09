@@ -1,11 +1,7 @@
-import { NextFunction } from "express";
+// example one
 import { MongoClient } from "mongodb";
-// import cookieParser from "cookie-parser";
-
-// import authRoter from "./routes/authRouter";
 
 const express = require("express");
-
 const body = require("body-parser");
 
 // tasks Data
@@ -15,21 +11,6 @@ export const myDb = async () =>
 async function start() {
   try {
     const app = express();
-    //user Data
-    // const usersData = await MongoClient.connect("mongodb://localhost:27017/usersAccount");
-
-    // await usersData.connect();
-
-    // app.db = usersData.db();
-
-    // // tasks Data
-    // const usersTaskData = await MongoClient.connect("mongodb://localhost:27017/toDoList");
-
-    // await usersTaskData.connect();
-
-    // app.db = usersTaskData.db();
-
-    //body parser
 
     app.use(
       body.json({
@@ -37,25 +18,9 @@ async function start() {
       })
     );
 
-    // app.use(cookieParser());
-
-    // app.use((req: any, res: any, next: any) => {
-    //   res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL); // Replace with your frontend domain
-    //   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-    //   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    //   res.header("Access-Control-Allow-Credentials", "true"); // Allow credentials (cookies, etc.)
-    //   next();
-    // });
-
     app.use("/users", require("./routes/users"));
 
     app.use("/tasks", require("./routes/tasks"));
-
-    // app.use(authRoter);
-
-    // app.use(authRoter);
-
-    //strat server
 
     app.listen(3000, () => {
       console.log("server is running on port 3000");
@@ -67,34 +32,49 @@ async function start() {
 
 start();
 
-// const router = express.Router();
+/* 2
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-// const app: Express = express();
+app.use(express.json());
 
-// const PORT = process.env.PORT || 8888;
+const uri = "mongodb://localhost:27017";
+const dbName = "testdb";
+let db: any;
 
-// let dbUrl = 'mongodb://localhost:27017/toDoList';
+MongoClient.connect(uri)
+  .then((client) => {
+    db = client.db(dbName);
+    console.log("conncted to db");
+  })
+  .catch((error) => console.log(error));
 
-// MongoClient.connect(dbUrl)
+//sample route o create a user
+app.use("/users", require("../src/routes/users"));
 
-// const mongoClient = new MongoClient(dbUrl)
+app.use("/tasks", require("../src/routes/tasks"));
 
-// async function createMongoConnection() {
-//     try {
-//         await mongoClient.connect();
-//         console.log("connected");
-//     } catch (err){
-//         console.log("error connecting to mongo"+ err);
-//     } finally {
-//         console.log("connected to mongo successfully1");
-//     }
-// }
+app.listen(PORT, () => {
+  console.log(`server is running om http://localhost:${PORT}`);
+});
 
-// app.get('/usersAccount', (req, res) => {
-//    res.json({msg: "welcome to the api"})
-//   });
+module.exports = app;
 
-//   app.listen(5000, () => {
-//     createMongoConnection();
-//     console.log(`⚡️[server]: Server is running at http://localhost:5000`);
-//   });
+//3
+import express from "express";
+import { MongoClient } from "mongodb";
+
+const app = express();
+export const myDb = async () =>
+  await MongoClient.connect("mongodb://localhost:27017/toDoList2");
+
+app.use(express.json());
+app.use("/users", require("../src/routes/users"));
+
+app.use("/tasks", require("../src/routes/tasks"));
+
+app.listen(3000, () => {
+  console.log(`server is running on http://localhost:3000`);
+});
+export default app;
+*/

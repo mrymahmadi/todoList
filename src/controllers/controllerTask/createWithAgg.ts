@@ -3,7 +3,6 @@ import { IUser } from "../../models/models";
 import { ITask } from "../../models/models";
 import { myDb } from "../../index";
 
-
 // this file is for test aggragate function, and not work yet
 
 export async function createUserTaskAggControllerr(req: any, res: any) {
@@ -129,6 +128,6 @@ export async function createUserTaskAggControllerr(req: any, res: any) {
       throw new Error("task not created");
     }
   } catch (error) {
-    res.status(500).json({ error: error.toString() });
+    res.status(500).json({ error: "ERROR" });
   }
 }

@@ -29,8 +29,8 @@ export async function getToDoController(req: any, res: any) {
     }
 
     const foundedUser = await userCollection.findOne(
-      { _id: result.user },
-      { projection: { todos: 0, password: 0 } }
+      { _id: result?._id },
+      { projection: { todos: 0, password: 0, name: 1 } }
     );
 
     await initDb.close();
@@ -40,6 +40,6 @@ export async function getToDoController(req: any, res: any) {
       todo: { ...result, user: foundedUser },
     });
   } catch (error) {
-    res.status(500).json({ error: error.toString() });
+    res.status(500).json({ error: "EEROR" });
   }
 }

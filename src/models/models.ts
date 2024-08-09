@@ -10,7 +10,7 @@ export interface IUser {
   name: string;
   password: string;
   email: string;
-  todos: ITask[] | ObjectId[];
+  todos?: ITask[] | ObjectId[];
 }
 
 export interface ITask {

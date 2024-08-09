@@ -32,6 +32,6 @@ export async function registerUserController(req: any, res: any) {
       }
     }
   } catch (error) {
-    res.status(500).json({ error: error.toString() });
+    res.status(500).json({ error: "ERROR" });
   }
 }

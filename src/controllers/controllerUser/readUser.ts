@@ -40,6 +40,6 @@ export async function getUserController(req: any, res: any) {
       user: { ...result, todos },
     });
   } catch (error) {
-    res.status(500).json({ error: error.toString() });
+    res.status(500).json({ error: "ERROR" });
   }
 }

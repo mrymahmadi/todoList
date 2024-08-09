@@ -66,6 +66,6 @@ export async function createUserController(req: any, res: any) {
       throw new Error("user not created");
     }
   } catch (error) {
-    res.status(500).json({ error: error.toString() });
+    res.status(500).json({ error: "ERROR" });
   }
 }

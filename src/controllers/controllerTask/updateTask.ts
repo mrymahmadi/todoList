@@ -40,6 +40,6 @@ export async function updateToDosController(req: any, res: any) {
       todoUpd: { result },
     });
   } catch (error) {
-    res.status(500).json({ error: error.toString() });
+    res.status(500).json({ error: "ERROR" });
   }
 }

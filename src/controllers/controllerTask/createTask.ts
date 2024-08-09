@@ -73,6 +73,6 @@ export async function createUserTaskController(req: any, res: any) {
       throw new Error("task not created");
     }
   } catch (error) {
-    res.status(500).json({ error: error.toString() });
+    res.status(500).json({ error: "ERROR" });
   }
 }

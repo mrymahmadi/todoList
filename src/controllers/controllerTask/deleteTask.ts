@@ -38,6 +38,6 @@ export async function deleteUserToDoController(req: any, res: any) {
       todo: nowTaks,
     });
   } catch (error) {
-    res.status(500).json({ error: error.toString() });
+    res.status(500).json({ error: "ERROR" });
   }
 }
